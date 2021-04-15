@@ -1,0 +1,15 @@
+
+server:
+  port: 8081
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: yearmonth
+
+# 整合mybatis配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  type-aliases-package: com.ausware.shardingjdbc.entity
+
