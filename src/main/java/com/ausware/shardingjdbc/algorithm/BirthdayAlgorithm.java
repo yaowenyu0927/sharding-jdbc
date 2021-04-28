@@ -8,12 +8,15 @@ import java.util.*;
 
 /**
  * @version 1.0
- * @author： 姚文宇
+ * @author：姚文宇
  * @date： 2021-04-11 10:58
  */
 public class BirthdayAlgorithm implements PreciseShardingAlgorithm<Date> {
 
-    //有几个数据源，就写几个
+    /**
+     * 有几个数据源，就写几个
+     *
+     */
     List<Date> dateList = new ArrayList<>();
     {
         Calendar instance1 = Calendar.getInstance();
@@ -29,7 +32,7 @@ public class BirthdayAlgorithm implements PreciseShardingAlgorithm<Date> {
      *
      * @param collection    数据源集合
      * @param preciseShardingValue  真实数据值
-     * @return
+     * @return 最后返回的是：ds0 ds1
      */
     @Override
     public String doSharding(Collection<String> collection, PreciseShardingValue<Date> preciseShardingValue) {
@@ -47,6 +50,7 @@ public class BirthdayAlgorithm implements PreciseShardingAlgorithm<Date> {
             }
         }
 
-        return target;   //最后返回的是：ds0 ds1
+        //最后返回的是：ds0 ds1
+        return target;
     }
 }
